@@ -635,7 +635,7 @@ ul {
 }
 @media (min-width: 1000px) {
   .team .box {
-    margin-left: 300px 
+    margin-left: 350px 
   }
 }
 .team .box::before,
