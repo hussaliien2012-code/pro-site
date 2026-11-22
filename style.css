@@ -453,7 +453,7 @@ ul {
 }
 .feature .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
 }
 .feature .box {
@@ -583,13 +583,6 @@ ul {
   box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
   border-radius: 6px;
   position: relative;
-}
-@media (min-width: 800px) {
-  .testimonials .box {
-    top: 5%;
-    left: 55%;
-    transform: translate(-50% -50%)
-  }
 }
 .testimonials .box img {
   position: absolute;
