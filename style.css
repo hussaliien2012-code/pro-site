@@ -399,6 +399,7 @@ ul {
   position: relative;
   width: 80px;
   height: 40px;
+  cursor: pointer; 
 }
 
 .toggle input {
