@@ -186,7 +186,34 @@ ul {
   border: 2px solid var(--white);
   transition-delay: 0.5s
 }
-
+.spikes {
+  position: relative;
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+  background-image: linear-gradient(135deg, var(--white) 25%, transparent 25%), linear-gradient(225deg, var(--white) 25%, transparent 25%);
+  background-size: 30px 30px
+}
+.dots {
+  background-image: url(imgs/dots.png);
+  height: 186px;
+  width: 204px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.dots-up {
+  top: 200px;
+  right: 0;
+}
+.dots-down {
+  bottom: 200px;
+  left: 0;
+}
 /* End Global Rules */
 
 /* Start Header */
@@ -214,7 +241,6 @@ ul {
   justify-content: center;
   align-items: center;
 }
-
 @media (max-width: 767px) {
   .header .logo {
     width: 100%;
@@ -273,7 +299,6 @@ ul {
   color: var(--main-color);
   background-color: var(--background-1);
 }
-
 .header .main-nav > .mega-link > a:hover::before {
   left: 0;
 }
@@ -324,7 +349,11 @@ ul {
     border-bottom: 1px solid var(--border-2)
   }
 }
-
+@media (min-width: 1500px) {
+  .header .art-link {
+    margin-left: 50px
+  }
+}
 .header .megamenu .links li::before {
   content: "";
   position: absolute;
@@ -336,7 +365,6 @@ ul {
   z-index: -1;
   transition: var(--main-transition);
 }
-
 .header .megamenu .links li:hover::before {
   width: 100%
 }
@@ -359,9 +387,14 @@ ul {
   justify-content: center;
   align-items: center;
   background: var(--white);
-  margin: 10px auto
+  margin: 10px 0 0
 }
-
+@media (max-width: 767px) {
+  .btn-father {
+    margin: 10px auto
+  }
+}
+  
 .toggle {
   position: relative;
   width: 80px;
@@ -446,7 +479,7 @@ ul {
 
 @media (max-width: 975px) {
   .landing .text {
-    text-align: center
+    text-align: center;
   }
 }
 
@@ -639,6 +672,7 @@ ul {
 }
 
 /* End Gallery */
+
 /* Start Features */
 .feature {
   padding-top: var(--main-padding-top);
@@ -730,7 +764,6 @@ ul {
 .feature .quality .img-holder::before {
   background-color: var(--quality-overlay);
 }
-
 .feature .quality h2::after {
   background-color: var(--quality-color)
 }
@@ -951,7 +984,6 @@ ul {
   margin-top: 10px;
   margin-bottom: 25px;
 }
-
 .team .box:hover .info h3 {
   color: var(--text-1)
 }
@@ -1118,6 +1150,7 @@ ul {
 }
 
 /* End Skills */
+
 /* Start Work Steps */
 .work-steps {
   padding-top: var(--main-padding-top);
@@ -1221,6 +1254,9 @@ ul {
 }
 
 /* End Work Steps */
+/* Linking CSS Files */
+
+@import url(style.css);
 
 /* Start Events */
 .events {
@@ -1772,8 +1808,8 @@ ul {
 
 /* Start To Up */
 .to-up {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   background-color: var(--main-color);
   z-index: 1000;
   position: fixed;
@@ -1787,7 +1823,7 @@ ul {
 
 .to-up .container .i {
   position: absolute;
-  font-size: 50px;
+  font-size: 35px;
   color: var(--tx-white);
   font-weight: bold;
   top: 50%;
@@ -2182,6 +2218,10 @@ ul {
   border-color: #303b49;
 }
 
+:root:has(.toggle input:checked) .footer .box .links li:hover a {
+  color: var(--main-color);
+}
+
 :root:has(.toggle input:checked) .footer .copyright {
   border-top-color: #303b49;
   color: var(--main-color);
@@ -2191,3 +2231,30 @@ ul {
 :root:has(.toggle input:checked) .to-up {
   background-color: var(--main-color);
 }
+
+/* Dark Mode Section Colors */
+
+:root:has(.toggle input:checked) {
+  --section-background: #0d1117;
+  --dark-section: #161b22;
+  --white: var(--section-background);
+}
+
+/* Dark Sections */
+:root:has(.toggle input:checked) .articles,
+:root:has(.toggle input:checked) .feature,
+:root:has(.toggle input:checked) .team,
+:root:has(.toggle input:checked) .my-skills,
+:root:has(.toggle input:checked) .events,
+:root:has(.toggle input:checked) .discount {
+  background-color: var(--section-background);
+}
+
+/* Lighter Dark Sections */
+:root:has(.toggle input:checked) .gallery,
+:root:has(.toggle input:checked) .testimonials,
+:root:has(.toggle input:checked) .services,
+:root:has(.toggle input:checked) .work-steps,
+:root:has(.toggle input:checked) .pricing {
+  background-color: var(--dark-section);
+                                  }
